@@ -19,10 +19,12 @@
 
         <livewire:styles />
     </head>
-    <body class="antialiased">
+    <body>
         @include('layouts.navbar')
-        @yield('content')
-        <livewire:counter />
+
+        <div class="container mt-5">
+            @yield('content')
+        </div>
         
         <livewire:scripts />
 

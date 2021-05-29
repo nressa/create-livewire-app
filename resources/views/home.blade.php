@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    View one's header
+    <livewire:contact-form />
 @endsection
