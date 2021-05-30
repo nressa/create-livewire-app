@@ -11,18 +11,18 @@
         <!-- Compressed CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+
         <style>
-            body {
-                font-family: 'Nunito', sans-serif;
-            }
+            @yield('style')
         </style>
 
         <livewire:styles />
     </head>
-    <body class="antialiased">
+    <body>
         @include('layouts.navbar')
+
         @yield('content')
-        <livewire:counter />
         
         <livewire:scripts />
 

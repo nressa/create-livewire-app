@@ -1,0 +1,27 @@
+.bg-translucent {
+    background-color: #ffffffd4!important;
+}
+
+.bg-brown {
+    background-color: #dfab7b;
+}
+
+.bg-brown-strong {
+    background-color: #dd934d;
+}
+
+.border-brown{
+    border-color: #dd934d;
+}
+
+.btn-brown{
+    background-color: #dd934d;
+    border-color: #dd934d;
+    color: #fff;
+}
+
+.btn-brown:hover{
+    background-color: #dd934d;
+    border-color: #dd934d;
+    color: #fff;
+}

@@ -3,9 +3,44 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\Message;
 
 class ContactForm extends Component
 {
+    public $name;
+    public $email;
+    public $comment;
+    public $success;
+    protected $rules = [
+        'name' => 'required',
+        'email' => 'required|email',
+        'comment' => 'required|min:5',
+    ];
+
+    public function contactFormSubmit()
+    {
+        $contact = $this->validate();
+
+        $message = new Message;
+
+        $message->email = $this->email;
+        $message->name = $this->name;
+        $message->message = $this->comment;
+
+        $message->save();
+
+        $this->success = 'Thank you for reaching out to us!';
+
+        $this->clearFields();
+    }
+
+    private function clearFields()
+    {
+        $this->name = '';
+        $this->email = '';
+        $this->comment = '';
+    }
+
     public function render()
     {
         return view('livewire.contact-form');
