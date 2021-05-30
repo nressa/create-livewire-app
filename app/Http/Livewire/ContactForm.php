@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\Message;
 
 class ContactForm extends Component
 {
@@ -20,17 +21,13 @@ class ContactForm extends Component
     {
         $contact = $this->validate();
 
-        Mail::send('email',
-        array(
-            'name' => $this->name,
-            'email' => $this->email,
-            'comment' => $this->comment,
-            ),
-            function($message){
-                $message->from('your_email@your_domain.com');
-                $message->to('your_email@your_domain.com', 'Bobby')->subject('Your Site Contect Form');
-            }
-        );
+        $message = new Message;
+
+        $message->email = $this->email;
+        $message->name = $this->name;
+        $message->message = $this->comment;
+
+        $message->save();
 
         $this->success = 'Thank you for reaching out to us!';
 
